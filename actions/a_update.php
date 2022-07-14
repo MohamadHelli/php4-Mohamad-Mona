@@ -11,9 +11,9 @@ if ($_POST) {
     $picture = file_upload($_FILES['pic']);//file_upload() called 
     if($picture->error===0){
         ($_POST["pic"]=="pic4.jpg")?: unlink("../pic/$_POST[pic]");
-        $sql = "UPDATE proudct SET name = '$name', price = $price, pic = '$picture->fileName' WHERE id = {$id}";
+        $sql = "UPDATE proudct SET   dis = '$dis', name = '$name', price = $price, pic = '$picture->fileName'  WHERE id = {$id}";
     }else{
-        $sql = "UPDATE proudct SET name = '$name', price = $price WHERE id = {$id}";
+        $sql = "UPDATE proudct SET dis = '$dis', name = '$name', price = $price WHERE id = {$id}";
     }
     if (mysqli_query($connect, $sql) === TRUE) {
         $class = "success";
